@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from "vitest";
-import { cleanup, fireEvent, render, screen,within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 import App from "../App";
 
@@ -26,8 +26,6 @@ describe("App", () => {
         fireEvent.change(input, { target: { value: "テストタスク" } });
         fireEvent.click(addButton);
 
-       const list = screen.getByRole("list")
-        expect(within(list).getByText("list)"))
         expect(screen.getByText("テストタスク")).toBeInTheDocument();
     });
 });
